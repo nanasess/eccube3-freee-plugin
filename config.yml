@@ -1,0 +1,7 @@
+name: FreeeLight
+code: FreeeLight
+version: 0.0.1
+service:
+    - FreeeLightServiceProvider
+orm.path:
+  - /Resource/doctrine
