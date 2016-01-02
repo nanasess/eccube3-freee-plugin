@@ -206,4 +206,17 @@ class FreeeOAuth2 extends \Eccube\Entity\AbstractEntity
     {
         return $this->update_date;
     }
+
+    public function getExpireTime()
+    {
+        if ($this->getUpdateDate()) {
+            return $this->getUpdateDate()->getTimestamp() + $this->getExpiresIn();
+        }
+        return 0;
+    }
+
+    public function isExpire()
+    {
+        return $this->getExpireTime() <= time();
+    }
 }
