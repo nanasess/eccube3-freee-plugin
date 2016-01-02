@@ -27,6 +27,7 @@ class Version20151220235031 extends AbstractMigration
         $table->addColumn('expires_in', 'integer', array('notnull' => false));
         $table->addColumn('refresh_token', 'text', array('notnull' => false));
         $table->addColumn('scope', 'text', array('notnull' => false));
+        $table->addColumn('update_date', 'datetime', array('notnull' => false));
         $table->setPrimaryKey(array('freee_oauth2_id'));
     }
 
