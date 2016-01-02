@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FreeeOAuth2 extends \Eccube\Entity\AbstractEntity
 {
+    const DEFAULT_ID = 1;
+
     /**
      * @var integer
      */
@@ -39,6 +41,10 @@ class FreeeOAuth2 extends \Eccube\Entity\AbstractEntity
      */
     private $scope;
 
+    /**
+     * @var \DateTime
+     */
+    private $update_date;
 
     /**
      * Set id
@@ -176,5 +182,28 @@ class FreeeOAuth2 extends \Eccube\Entity\AbstractEntity
     public function getScope()
     {
         return $this->scope;
+    }
+
+    /**
+     * Set update_date
+     *
+     * @param  \DateTime $updateDate
+     * @return Customer
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->update_date = $updateDate;
+
+        return $this;
+    }
+
+    /**
+     * Get update_date
+     *
+     * @return \DateTime
+     */
+    public function getUpdateDate()
+    {
+        return $this->update_date;
     }
 }

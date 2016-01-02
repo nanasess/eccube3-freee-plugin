@@ -25,4 +25,7 @@ Plugin\FreeeLight\Entity\FreeeOAuth2:
         scope:
             type: text
             nullable: true
+        update_date:
+            type: datetime
+            nullable: true
     lifecycleCallbacks: {  }
