@@ -1,0 +1,28 @@
+Plugin\FreeeLight\Entity\FreeeOAuth2:
+    type: entity
+    table: plg_freee_OAuth2
+    repositoryClass: Plugin\FreeeLight\Repository\FreeeOAuth2Repository
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: freee_oauth2_id
+    fields:
+        access_token:
+            type: text
+            nullable: true
+        token_type:
+            type: text
+            nullable: true
+        expires_in:
+            type: integer
+            nullable: true
+        refresh_token:
+            type: text
+            nullable: true
+        scope:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

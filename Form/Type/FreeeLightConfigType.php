@@ -41,6 +41,6 @@ class FreeeLightConfigType extends AbstractType
 
     public function getName()
     {
-        return 'sendgridlight_config';
+        return 'freeelight_config';
     }
 }

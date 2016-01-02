@@ -1,6 +1,6 @@
 Plugin\FreeeLight\Entity\FreeeLight:
     type: entity
-    table: plg_sendgridlight
+    table: plg_freeelight
     repositoryClass: Plugin\FreeeLight\Repository\FreeeLightRepository
     id:
         id:
@@ -8,7 +8,7 @@ Plugin\FreeeLight\Entity\FreeeLight:
             nullable: false
             unsigned: false
             id: true
-            column: sendgrid_id
+            column: freee_id
     fields:
         api_user:
             type: text

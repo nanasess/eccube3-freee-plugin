@@ -12,11 +12,11 @@ class ConfigController extends AbstractController
 {
     public function index(Application $app, Request $request)
     {
-        $FreeeLight = $app['eccube.plugin.repository.sendgridlight']->find(1);
+        $FreeeLight = $app['eccube.plugin.repository.freeelight']->find(1);
         if (!is_object($FreeeLight)) {
             $FreeeLight = new FreeeLight();
         }
-        $form = $app['form.factory']->createBuilder('sendgridlight_config', $FreeeLight)->getForm();
+        $form = $app['form.factory']->createBuilder('freeelight_config', $FreeeLight)->getForm();
 
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);

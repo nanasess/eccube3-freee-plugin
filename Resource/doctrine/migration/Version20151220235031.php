@@ -8,9 +8,9 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20151220235030 extends AbstractMigration
+class Version20151220235031 extends AbstractMigration
 {
-    const NAME = 'plg_freeelight';
+    const NAME = 'plg_freee_oauth2';
 
     /**
      * @param Schema $schema
@@ -19,12 +19,15 @@ class Version20151220235030 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $table = $schema->createTable(self::NAME);
-        $table->addColumn('freee_id', 'integer', array(
+        $table->addColumn('freee_oauth2_id', 'integer', array(
             'unsigned' => true
         ));
-        $table->addColumn('api_user', 'text', array('notnull' => false));
-        $table->addColumn('api_key', 'text', array('notnull' => false));
-        $table->setPrimaryKey(array('freee_id'));
+        $table->addColumn('access_token', 'text', array('notnull' => false));
+        $table->addColumn('token_type', 'text', array('notnull' => false));
+        $table->addColumn('expires_in', 'integer', array('notnull' => false));
+        $table->addColumn('refresh_token', 'text', array('notnull' => false));
+        $table->addColumn('scope', 'text', array('notnull' => false));
+        $table->setPrimaryKey(array('freee_oauth2_id'));
     }
 
     /**
