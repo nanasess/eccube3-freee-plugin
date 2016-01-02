@@ -32,6 +32,21 @@ class FreeeLightServiceProvider implements ServiceProviderInterface
         $app['eccube.plugin.repository.freeelight'] = $app->share(function () use ($app) {
             return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeLight');
         });
+        $app['eccube.plugin.repository.freee_oauth2'] = $app->share(function () use ($app) {
+            return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeOAuth2');
+        });
+        $app['eccube.plugin.repository.freee_tax'] = $app->share(function () use ($app) {
+            return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeTax');
+        });
+        $app['eccube.plugin.repository.freee_account_item'] = $app->share(function () use ($app) {
+            return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeAccountItem');
+        });
+        $app['eccube.plugin.repository.freee_wallet'] = $app->share(function () use ($app) {
+            return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeWallet');
+        });
+        $app['eccube.plugin.repository.freee_company'] = $app->share(function () use ($app) {
+            return $app['orm.em']->getRepository('Plugin\FreeeLight\Entity\FreeeCompany');
+        });
     }
     public function boot(BaseApplication $app)
     {

@@ -8,9 +8,9 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20151220235030 extends AbstractMigration
+class Version20151220235032 extends AbstractMigration
 {
-    const NAME = 'plg_freeelight';
+    const NAME = 'plg_freee_tax';
 
     /**
      * @param Schema $schema
@@ -19,13 +19,12 @@ class Version20151220235030 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $table = $schema->createTable(self::NAME);
-        $table->addColumn('freee_id', 'integer', array(
+        $table->addColumn('code', 'integer', array(
             'unsigned' => true
         ));
-        $table->addColumn('client_id', 'text', array('notnull' => false));
-        $table->addColumn('client_secret', 'text', array('notnull' => false));
-        $table->addColumn('company_id', 'integer', array('notnull' => false));
-        $table->setPrimaryKey(array('freee_id'));
+        $table->addColumn('name', 'text', array('notnull' => false));
+        $table->addColumn('name_ja', 'text', array('notnull' => false));
+        $table->setPrimaryKey(array('code'));
     }
 
     /**

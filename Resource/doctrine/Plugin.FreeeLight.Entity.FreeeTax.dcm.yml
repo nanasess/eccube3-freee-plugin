@@ -1,0 +1,18 @@
+Plugin\FreeeLight\Entity\FreeeTax:
+    type: entity
+    table: plg_freee_tax
+    repositoryClass: Plugin\FreeeLight\Repository\FreeeTaxRepository
+    id:
+        code:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+    fields:
+        name:
+            type: text
+            nullable: true
+        name_ja:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,22 +1,25 @@
-Plugin\FreeeLight\Entity\FreeeLight:
+Plugin\FreeeLight\Entity\FreeeAccountItem:
     type: entity
-    table: plg_freeelight
-    repositoryClass: Plugin\FreeeLight\Repository\FreeeLightRepository
+    table: plg_freee_account_item
+    repositoryClass: Plugin\FreeeLight\Repository\FreeeAccountItemRepository
     id:
         id:
             type: integer
             nullable: false
             unsigned: false
             id: true
-            column: freee_id
     fields:
-        client_id:
+        name:
             type: text
             nullable: true
-        client_secret:
+        shortcut:
             type: text
             nullable: true
-        company_id:
+
+        default_tax_id:
+            type: integer
+            nullable: true
+        default_tax_code:
             type: integer
             nullable: true
     lifecycleCallbacks: {  }

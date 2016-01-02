@@ -1,22 +1,24 @@
-Plugin\FreeeLight\Entity\FreeeLight:
+Plugin\FreeeLight\Entity\FreeeCompany:
     type: entity
-    table: plg_freeelight
-    repositoryClass: Plugin\FreeeLight\Repository\FreeeLightRepository
+    table: plg_freee_company
+    repositoryClass: Plugin\FreeeLight\Repository\FreeeCompanyRepository
     id:
         id:
             type: integer
             nullable: false
             unsigned: false
             id: true
-            column: freee_id
     fields:
-        client_id:
+        name:
             type: text
             nullable: true
-        client_secret:
+        name_kana:
             type: text
             nullable: true
-        company_id:
-            type: integer
+        display_name:
+            type: text
+            nullable: true
+        role:
+            type: text
             nullable: true
     lifecycleCallbacks: {  }

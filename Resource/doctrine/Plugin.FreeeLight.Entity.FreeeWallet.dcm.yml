@@ -1,22 +1,21 @@
-Plugin\FreeeLight\Entity\FreeeLight:
+Plugin\FreeeLight\Entity\FreeeWallet:
     type: entity
-    table: plg_freeelight
-    repositoryClass: Plugin\FreeeLight\Repository\FreeeLightRepository
+    table: plg_freee_wallet
+    repositoryClass: Plugin\FreeeLight\Repository\FreeeWalletRepository
     id:
         id:
             type: integer
             nullable: false
             unsigned: false
             id: true
-            column: freee_id
     fields:
-        client_id:
+        name:
             type: text
             nullable: true
-        client_secret:
-            type: text
-            nullable: true
-        company_id:
+        bank_id:
             type: integer
+            nullable: true
+        type:
+            type: text
             nullable: true
     lifecycleCallbacks: {  }

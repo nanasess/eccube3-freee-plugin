@@ -9,9 +9,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FreeeLight extends \Eccube\Entity\AbstractEntity
 {
+    /**
+     * @var integer
+     */
     private $id;
-    private $api_user;
-    private $api_key;
+
+    /**
+     * @var string
+     */
+    private $client_id;
+
+    /**
+     * @var string
+     */
+    private $client_secret;
+
+    /**
+     * @var integer
+     */
+    private $company_id;
+
 
     /**
      * Set id
@@ -37,49 +54,71 @@ class FreeeLight extends \Eccube\Entity\AbstractEntity
     }
 
     /**
-     * Set api_user
+     * Set client_id
      *
-     * @param string $apiUser
+     * @param string $clientId
      * @return FreeeLight
      */
-    public function setApiUser($apiUser)
+    public function setClientId($clientId)
     {
-        $this->api_user = $apiUser;
+        $this->client_id = $clientId;
 
         return $this;
     }
 
     /**
-     * Get api_user
+     * Get client_id
      *
      * @return string
      */
-    public function getApiUser()
+    public function getClientId()
     {
-        return $this->api_user;
+        return $this->client_id;
     }
 
     /**
-     * Set api_key
+     * Set client_secret
      *
-     * @param string $apiKey
+     * @param string $clientSecret
      * @return FreeeLight
      */
-    public function setApiKey($apiKey)
+    public function setClientSecret($clientSecret)
     {
-        $this->api_key = $apiKey;
+        $this->client_secret = $clientSecret;
 
         return $this;
     }
 
     /**
-     * Get api_password
+     * Get client_secret
      *
      * @return string
      */
-    public function getApiKey()
+    public function getClientSecret()
     {
-        return $this->api_key;
+        return $this->client_secret;
     }
 
+    /**
+     * Set company_id
+     *
+     * @param integer $companyId
+     * @return FreeeLight
+     */
+    public function setCompanyId($companyId)
+    {
+        $this->company_id = $companyId;
+
+        return $this;
+    }
+
+    /**
+     * Get company_id
+     *
+     * @return integer
+     */
+    public function getCompanyId()
+    {
+        return $this->company_id;
+    }
 }
