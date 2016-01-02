@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 class FreeeOAuth2 extends \Eccube\Entity\AbstractEntity
 {
     const DEFAULT_ID = 1;
+    const API_HOST = 'https://api.freee.co.jp';
+    const TOKEN_ROUTE = '/oauth/token';
+    const AUTHORIZE_ROUTE = 'https://secure.freee.co.jp/oauth/authorize';
+    const RESOURCE_ROUTE = '/oauth/token?grant_type=refresh_token';
+    const RESOURCE_METHOD = 'POST';
 
     /**
      * @var integer

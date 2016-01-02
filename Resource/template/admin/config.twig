@@ -19,18 +19,18 @@
         <div class="col-md-6 col-md-offset-3">
             <form class="form-horizontal" method="post" action="{{ url('plugin_FreeeLight_config') }}" {{ form_enctype(form) }}>
                 {{ form_widget(form._token) }}
-                <div class="form-group {% if form.api_user.vars.errors|length %} has-error {% endif %}">
-                    <label class="col-sm-4 control-label">API User <span class="text-danger">*</span></label>
+                <div class="form-group {% if form.client_id.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">Client ID <span class="text-danger">*</span></label>
                     <div class="col-sm-8">
-                        {{ form_widget(form.api_user) }}
-                        {{ form_errors(form.api_user) }}
+                        {{ form_widget(form.client_id) }}
+                        {{ form_errors(form.client_id) }}
                     </div>
                 </div>
-                <div class="form-group {% if form.api_key.vars.errors|length %} has-error {% endif %}">
-                    <label class="col-sm-4 control-label">API Key <span class="text-danger">*</span></label>
+                <div class="form-group {% if form.client_secret.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">Client Secret <span class="text-danger">*</span></label>
                     <div class="col-sm-8">
-                        {{ form_widget(form.api_key, {'type': 'password'}) }}
-                        {{ form_errors(form.api_key) }}
+                        {{ form_widget(form.client_secret, {'type': 'password'}) }}
+                        {{ form_errors(form.client_secret) }}
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,4 +41,6 @@
             </form>
         </div>
     </div>
+    <li><a href="{{ constant('Plugin\\FreeeLight\\Entity\\FreeeOAuth2::AUTHORIZE_ROUTE') }}?response_type=code&client_id={{Freee.client_id}}&redirect_uri={{ redirect_uri|url_encode() }}">freee API 認証</a></li>
+
 {% endblock config_main %}

@@ -33,6 +33,7 @@ class ConfigController extends AbstractController
         return $app->render('FreeeLight/Resource/template/admin/config.twig', array(
             'form' => $form->createView(),
             'Freee' => $FreeeLight,
+            'redirect_uri' => $app->url('plugin_FreeeLight_oauth2_receive_authcode')
         ));
     }
 

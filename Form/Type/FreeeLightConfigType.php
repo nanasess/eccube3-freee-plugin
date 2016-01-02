@@ -19,12 +19,12 @@ class FreeeLightConfigType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('api_user', 'text', array(
+            ->add('client_id', 'text', array(
                 'constraints' => array(
                     new Assert\NotBlank(),
                 ),
             ))
-            ->add('api_key', 'text', array(
+            ->add('client_secret', 'text', array(
                 'constraints' => array(
                     new Assert\NotBlank(),
                 ),

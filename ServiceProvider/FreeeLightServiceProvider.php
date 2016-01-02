@@ -16,11 +16,14 @@ class FreeeLightServiceProvider implements ServiceProviderInterface
             '/'.$app['config']['admin_route'].'/plugin/FreeeLight/config',
             'Plugin\FreeeLight\Controller\ConfigController::index')
             ->bind('plugin_FreeeLight_config');
-
         $app->match(
             '/'.$app['config']['admin_route'].'/plugin/FreeeLight/config_complete',
             'Plugin\FreeeLight\Controller\ConfigController::complete')
             ->bind('plugin_FreeeLight_config_complete');
+        $app->match(
+            '/oauth2/receive_authcode',
+            'Plugin\FreeeLight\Controller\OAuth2Controller::receive_authcode')
+            ->bind('plugin_FreeeLight_oauth2_receive_authcode');
 
         // Form
         $app['form.types'] = $app->share($app->extend('form.types', function ($types) use ($app) {
