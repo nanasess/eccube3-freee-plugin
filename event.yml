@@ -1,2 +1,2 @@
-eccube.event.render.shopping_complete.before:
+eccube.event.controller.shopping_complete.before:
     - [onRenderShoppingComplete, LAST]

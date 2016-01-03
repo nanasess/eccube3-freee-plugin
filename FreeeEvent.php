@@ -1,3 +1,5 @@
+<?php
+
 namespace Plugin\FreeeLight;
 
 use Monolog\Logger;
@@ -20,14 +22,17 @@ class FreeeEvent
         $this->app = $app;
     }
 
-    public function onRenderShoppingComplete(FilterResponseEvent $event)
+    public function onRenderShoppingComplete()
     {
 
         $app = $this->app;
-        $response = $event->getResponse();
-        $event->setResponse($response);
 
         $orderId = $app['session']->get('eccube.front.shopping.order.id');
+        if (!$orderId) {
+            $app->log('onRenderShoppingComplete event orderId not found', array(), Logger::ERROR);
+            return;
+        }
+
         $Order = $app['eccube.repository.order']->find($orderId);
         if (!$Order) {
             $app->log('onRenderShoppingComplete event Order not found', array(), Logger::ERROR);
