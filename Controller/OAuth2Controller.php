@@ -68,58 +68,7 @@ class OAuth2Controller extends AbstractController
             }
             $app['orm.em']->flush($Company);
         }
-        $taxes = $client->get('/api/1/taxes/codes.json?company_id=193715',
-                              array(
-                                  'Authorization' => 'Bearer '.$OAuth2->getAccessToken()
-                              ),
-                              $params)->send()->json();
-        foreach ($taxes['taxes'] as $arrTax) {
-            $Tax = $app['eccube.plugin.repository.freee_tax']->find($arrTax['code']);
-            if (!is_object($Tax)) {
-                $Tax = new FreeeTax();
-                $Tax->setPropertiesFromArray($arrTax);
-                $app['orm.em']->persist($Tax);
-            } else {
-                $Tax->setPropertiesFromArray($arrTax);
-            }
-            $app['orm.em']->flush($Tax);
-        }
 
-        $walletables = $client->get('/api/1/walletables.json?company_id=193715',
-                                   array(
-                                       'Authorization' => 'Bearer '.$OAuth2->getAccessToken()
-                                   ),
-                                   $params)->send()->json();
-
-        foreach ($walletables['walletables'] as $arrWallet) {
-            $Wallet = $app['eccube.plugin.repository.freee_wallet']->find($arrWallet['id']);
-            if (!is_object($Wallet)) {
-                $Wallet = new FreeeWallet();
-                $Wallet->setPropertiesFromArray($arrWallet);
-                $app['orm.em']->persist($Wallet);
-            } else {
-                $Tax->setPropertiesFromArray($arrWallet);
-            }
-            $app['orm.em']->flush($Wallet);
-        }
-
-        $account_items = $client->get('/api/1/account_items.json?company_id=193715',
-                                      array(
-                                          'Authorization' => 'Bearer '.$OAuth2->getAccessToken()
-                                      ),
-                                      $params)->send()->json();
-        foreach ($account_items['account_items'] as $arrItem) {
-            $AccountItem = $app['eccube.plugin.repository.freee_account_item']->find($arrItem['id']);
-            if (!is_object($AccountItem)) {
-                $AccountItem = new FreeeAccountItem();
-                $AccountItem->setPropertiesFromArray($arrItem);
-                $app['orm.em']->persist($AccountItem);
-            } else {
-                $AccountItem->setPropertiesFromArray($arrItem);
-            }
-            $app['orm.em']->flush($AccountItem);
-        }
-
-        return $app->redirect($app->url('plugin_FreeeLight_config'));
+        return $app->redirect($app->url('plugin_FreeeLight_config_step3'));
     }
 }

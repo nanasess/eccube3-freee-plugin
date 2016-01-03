@@ -17,9 +17,18 @@ class FreeeLightServiceProvider implements ServiceProviderInterface
             'Plugin\FreeeLight\Controller\ConfigController::index')
             ->bind('plugin_FreeeLight_config');
         $app->match(
+            '/'.$app['config']['admin_route'].'/plugin/FreeeLight/config2',
+            'Plugin\FreeeLight\Controller\ConfigController::step2')
+            ->bind('plugin_FreeeLight_config_step2');
+        $app->match(
+            '/'.$app['config']['admin_route'].'/plugin/FreeeLight/config3',
+            'Plugin\FreeeLight\Controller\ConfigController::step3')
+            ->bind('plugin_FreeeLight_config_step3');
+        $app->match(
             '/'.$app['config']['admin_route'].'/plugin/FreeeLight/config_complete',
             'Plugin\FreeeLight\Controller\ConfigController::complete')
             ->bind('plugin_FreeeLight_config_complete');
+
         $app->match(
             '/oauth2/receive_authcode',
             'Plugin\FreeeLight\Controller\OAuth2Controller::receive_authcode')
@@ -27,7 +36,9 @@ class FreeeLightServiceProvider implements ServiceProviderInterface
 
         // Form
         $app['form.types'] = $app->share($app->extend('form.types', function ($types) use ($app) {
+            $types[] = new \Plugin\FreeeLight\Form\Type\FreeeCompanyType($app);
             $types[] = new \Plugin\FreeeLight\Form\Type\FreeeLightConfigType($app);
+            $types[] = new \Plugin\FreeeLight\Form\Type\FreeeLightConfig2Type($app);
             return $types;
         }));
 

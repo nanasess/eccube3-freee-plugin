@@ -1,0 +1,28 @@
+{% extends 'FreeeLight/Resource/template/admin/config_frame.twig' %}
+
+{% block config_header %}
+    {% block title %}Freee プラグイン Light{% endblock %}
+    {% block sub_title %}{% endblock %}
+
+    {% form_theme form 'Form/bootstrap_3_horizontal_layout.html.twig' %}
+
+    {% block stylesheet %}
+        {{ parent() }}
+    {% endblock stylesheet %}
+    {% block javascript %}
+        {{ parent() }}
+    {% endblock javascript %}
+{% endblock config_header %}
+
+{% block config_main %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <a href="{{ constant('Plugin\\FreeeLight\\Entity\\FreeeOAuth2::AUTHORIZE_ROUTE') }}?response_type=code&client_id={{Freee.client_id}}&redirect_uri={{ redirect_uri|url_encode() }}" class="btn btn-primary btn-lg btn-block">freee API 認証をします</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+{% endblock config_main %}

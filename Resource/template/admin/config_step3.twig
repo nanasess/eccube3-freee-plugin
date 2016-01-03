@@ -1,0 +1,37 @@
+{% extends 'FreeeLight/Resource/template/admin/config_frame.twig' %}
+
+{% block config_header %}
+    {% block title %}Freee プラグイン Light{% endblock %}
+    {% block sub_title %}{% endblock %}
+
+    {% form_theme form 'Form/bootstrap_3_horizontal_layout.html.twig' %}
+
+    {% block stylesheet %}
+        {{ parent() }}
+    {% endblock stylesheet %}
+    {% block javascript %}
+        {{ parent() }}
+    {% endblock javascript %}
+{% endblock config_header %}
+
+{% block config_main %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form-horizontal" method="post" action="{{ url('plugin_FreeeLight_config_step3') }}" {{ form_enctype(form) }}>
+                {{ form_widget(form._token) }}
+                <div class="form-group {% if form.company_id.vars.errors|length %} has-error {% endif %}">
+                    <label class="col-sm-4 control-label">企業 <span class="text-danger">*</span></label>
+                    <div class="col-sm-8">
+                        {{ form_widget(form.company_id) }}
+                        {{ form_errors(form.company_id) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">入力した内容で登録</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock config_main %}
