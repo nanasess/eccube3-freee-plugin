@@ -4,4 +4,5 @@ version: 0.0.1
 service:
     - FreeeLightServiceProvider
 orm.path:
-  - /Resource/doctrine
+    - /Resource/doctrine
+event: FreeeEvent
